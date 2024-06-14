@@ -118,6 +118,23 @@ def user_stats(df):
     print('-'*40)
 
 
+def display_raw_data(df):
+    """ Your docstring here """
+    
+    i = 0
+    raw = input('\nWould you like to display 5 rows of raw data? Enter yes or no\n').lower() # TO DO: convert the user input to lower case using lower() function
+    pd.set_option('display.max_columns',200)
+    while True:            
+        if raw == 'no':
+            break
+        elif raw == 'yes':
+            print(df.head()) # TO DO: appropriately subset/slice your dataframe to display next five rows
+            raw = input('\nWould you like to display 5 more rows of raw data? Enter yes or no\n').lower() # TO DO: convert the user input to lower case using lower() function
+            i += 5
+        else:
+            raw = input("\nYour input is invalid. Please enter only 'yes' or 'no'\n").lower()
+
+
 def main():
     while True:
         city, month, day = get_filters()
